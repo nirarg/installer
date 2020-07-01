@@ -13,6 +13,7 @@ import (
 	"github.com/openshift/installer/pkg/types/azure"
 	"github.com/openshift/installer/pkg/types/baremetal"
 	"github.com/openshift/installer/pkg/types/gcp"
+	"github.com/openshift/installer/pkg/types/kubevirt"
 	"github.com/openshift/installer/pkg/types/libvirt"
 	"github.com/openshift/installer/pkg/types/none"
 	"github.com/openshift/installer/pkg/types/openstack"
@@ -77,6 +78,9 @@ func (a *PlatformProvisionCheck) Generate(dependencies asset.Parents) error {
 		}
 	case aws.Name, libvirt.Name, none.Name, openstack.Name, ovirt.Name:
 		// no special provisioning requirements to check
+	case kubevirt.Name:
+		// no special provisioning requirements to check
+		// TODO <nargaman> need to validate public DNS?
 	default:
 		err = fmt.Errorf("unknown platform type %q", platform)
 	}

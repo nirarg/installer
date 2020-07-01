@@ -12,6 +12,7 @@ import (
 	"github.com/openshift/installer/pkg/types/aws"
 	"github.com/openshift/installer/pkg/types/azure"
 	"github.com/openshift/installer/pkg/types/gcp"
+	"github.com/openshift/installer/pkg/types/kubevirt"
 	"github.com/openshift/installer/pkg/validate"
 )
 
@@ -61,6 +62,9 @@ func (a *baseDomain) Generate(parents asset.Parents) error {
 		if !(gcpconfig.IsForbidden(err) || gcpconfig.IsThrottled(err)) {
 			return err
 		}
+	case kubevirt.Name:
+		a.BaseDomain = "svc.cluster.local"
+		return nil
 	default:
 		//Do nothing
 	}
