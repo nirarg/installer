@@ -99,6 +99,10 @@ func (k *kubeconfig) load(f asset.FileFetcher, name string) (found bool, err err
 }
 
 func getExtAPIServerURL(ic *types.InstallConfig) string {
+	switch ic.Platform.Name() {
+	case "kubevirt":
+		return fmt.Sprintf("https://api-%s.%s:443", ic.Kubevirt.InfraClusterNamespace, ic.Kubevirt.InfraClusterIngressDomain)
+	}
 	return fmt.Sprintf("https://api.%s:6443", ic.ClusterDomain())
 }
 

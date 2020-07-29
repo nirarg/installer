@@ -25,6 +25,7 @@ func (k *AdminClient) Dependencies() []asset.Asset {
 		&tls.AdminKubeConfigClientCertKey{},
 		&tls.KubeAPIServerCompleteCABundle{},
 		&installconfig.InstallConfig{},
+		&installconfig.ClusterID{},
 	}
 }
 
