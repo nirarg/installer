@@ -44,29 +44,35 @@ type ServeOpts struct {
 	// Wrapped versions of the above plugins will automatically shimmed and
 	// added to the GRPC functions when possible.
 	GRPCProviderFunc GRPCProviderFunc
+
+	ServeConfig *plugin.ServeConfig
 }
 
 // Serve serves a plugin. This function never returns and should be the final
 // function called in the main function of the plugin.
 func Serve(opts *ServeOpts) {
-	// since the plugins may not yet be aware of the new protocol, we
-	// automatically wrap the plugins in the grpc shims.
-	if opts.GRPCProviderFunc == nil && opts.ProviderFunc != nil {
-		provider := grpcplugin.NewGRPCProviderServerShim(opts.ProviderFunc())
-		// this is almost always going to be a *schema.Provider, but check that
-		// we got back a valid provider just in case.
-		if provider != nil {
-			opts.GRPCProviderFunc = func() proto.ProviderServer {
-				return provider
+	serveConfig := opts.ServeConfig
+	if serveConfig == nil {
+		// since the plugins may not yet be aware of the new protocol, we
+		// automatically wrap the plugins in the grpc shims.
+		if opts.GRPCProviderFunc == nil && opts.ProviderFunc != nil {
+			provider := grpcplugin.NewGRPCProviderServerShim(opts.ProviderFunc())
+			// this is almost always going to be a *schema.Provider, but check that
+			// we got back a valid provider just in case.
+			if provider != nil {
+				opts.GRPCProviderFunc = func() proto.ProviderServer {
+					return provider
+				}
 			}
+		}
+		serveConfig = &plugin.ServeConfig{
+			HandshakeConfig:  Handshake,
+			VersionedPlugins: pluginSet(opts),
+			GRPCServer:       plugin.DefaultGRPCServer,
 		}
 	}
 
-	plugin.Serve(&plugin.ServeConfig{
-		HandshakeConfig:  Handshake,
-		VersionedPlugins: pluginSet(opts),
-		GRPCServer:       plugin.DefaultGRPCServer,
-	})
+	plugin.Serve(serveConfig)
 }
 
 // pluginMap returns the legacy map[string]plugin.Plugin to use for configuring

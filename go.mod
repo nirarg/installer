@@ -37,9 +37,12 @@ require (
 	github.com/hashicorp/logutils v1.0.0
 	github.com/hashicorp/terraform v0.12.21
 	github.com/hashicorp/terraform-plugin-sdk v1.14.0
+	github.com/hashicorp/terraform-provider-kubernetes v1.12.0
+	github.com/hashicorp/terraform-provider-kubernetes-alpha v0.1.0
 	github.com/hashicorp/vault v1.3.0 // indirect
 	github.com/hinshun/vt10x v0.0.0-20180809195222-d55458df857c // indirect
 	github.com/keybase/go-crypto v0.0.0-20190828182435-a05457805304 // indirect
+	github.com/kubevirt/cluster-api-provider-kubevirt v0.0.0-00010101000000-000000000000
 	github.com/libvirt/libvirt-go v5.10.0+incompatible
 	github.com/libvirt/libvirt-go-xml v5.10.0+incompatible // indirect
 	github.com/masterzen/simplexml v0.0.0-20190410153822-31eea3082786 // indirect
@@ -62,7 +65,6 @@ require (
 	github.com/ovirt/terraform-provider-ovirt v0.4.3-0.20200406133650-74a154c1d861
 	github.com/packer-community/winrmcp v0.0.0-20180921211025-c76d91c1e7db // indirect
 	github.com/pborman/uuid v1.2.0
-	github.com/pierrec/lz4 v2.3.0+incompatible // indirect
 	github.com/pkg/errors v0.9.1
 	github.com/pkg/sftp v1.10.1
 	github.com/prometheus/client_golang v1.5.1
@@ -73,7 +75,7 @@ require (
 	github.com/spf13/cobra v0.0.6
 	github.com/stoewer/go-strcase v1.1.0 // indirect
 	github.com/stretchr/testify v1.5.1
-	github.com/terraform-providers/terraform-provider-aws v0.0.0
+	github.com/terraform-providers/terraform-provider-aws v1.60.1-0.20191010190908-1261a98537f2
 	github.com/terraform-providers/terraform-provider-azurerm v0.0.0
 	github.com/terraform-providers/terraform-provider-google v1.20.1-0.20200623174414-27107f2ee160
 	github.com/terraform-providers/terraform-provider-ignition/v2 v2.1.0
@@ -96,9 +98,9 @@ require (
 	gopkg.in/AlecAivazis/survey.v1 v1.8.9-0.20200217094205-6773bdf39b7f
 	gopkg.in/ini.v1 v1.51.0
 	gopkg.in/yaml.v2 v2.2.8
-	k8s.io/api v0.18.3
+	k8s.io/api v0.19.0-rc.2
 	k8s.io/apiextensions-apiserver v0.18.2
-	k8s.io/apimachinery v0.18.3
+	k8s.io/apimachinery v0.19.0-rc.2
 	k8s.io/client-go v12.0.0+incompatible
 	k8s.io/klog v1.0.0
 	k8s.io/utils v0.0.0-20200327001022-6496210b90e8
@@ -114,10 +116,10 @@ replace (
 	github.com/Azure/go-autorest/autorest/azure/auth => github.com/tombuildsstuff/go-autorest/autorest/azure/auth v0.4.3-0.20200416184303-d4e299a3c04a
 	github.com/go-log/log => github.com/go-log/log v0.1.1-0.20181211034820-a514cf01a3eb // Pinned by MCO
 	github.com/hashicorp/terraform => github.com/openshift/terraform v0.12.20-openshift-4 // Pin to fork with deduplicated rpc types v0.12.20-openshift-4
-	github.com/hashicorp/terraform-plugin-sdk => github.com/openshift/hashicorp-terraform-plugin-sdk v1.14.0-openshift // Pin to fork with public rpc types
+	github.com/hashicorp/terraform-plugin-sdk => github.com/nirarg/hashicorp-terraform-plugin-sdk v1.6.1-0.20200810131032-cb698abbd036 // Pin to fork with public rpc types
 	github.com/metal3-io/baremetal-operator => github.com/openshift/baremetal-operator v0.0.0-20200715132148-0f91f62a41fe // Use OpenShift fork
 	github.com/metal3-io/cluster-api-provider-baremetal => github.com/openshift/cluster-api-provider-baremetal v0.0.0-20190821174549-a2a477909c1d // Pin OpenShift fork
-	github.com/openshift/api => github.com/openshift/api v0.0.0-20200601094953-95abe2d2f422 // Pin API
+	github.com/openshift/api => github.com/nirarg/api v0.0.0-20200803123134-acfad52c109f // Pin API
 	github.com/openshift/client-go => github.com/openshift/client-go v0.0.0-20200116152001-92a2713fa240 // Pin client-go
 	github.com/openshift/machine-config-operator => github.com/openshift/machine-config-operator v0.0.1-0.20200721120235-b3b074ee9156 // Pin MCO so it doesn't get downgraded
 	github.com/terraform-providers/terraform-provider-aws => github.com/openshift/terraform-provider-aws v1.60.1-0.20200630224953-76d1fb4e5699 // Pin to openshift fork with tag v2.67.0-openshift
@@ -151,3 +153,7 @@ replace (
 	sigs.k8s.io/cluster-api-provider-azure => github.com/openshift/cluster-api-provider-azure v0.1.0-alpha.3.0.20200120114645-8a9592f1f87b // Pin OpenShift fork
 	sigs.k8s.io/cluster-api-provider-openstack => github.com/openshift/cluster-api-provider-openstack v0.0.0-20200526112135-319a35b2e38e // Pin OpenShift fork
 )
+
+replace github.com/hashicorp/terraform-provider-kubernetes-alpha => github.com/nirarg/terraform-provider-kubernetes-alpha v0.0.0-20200729062155-d13eb1b75733
+
+replace github.com/kubevirt/cluster-api-provider-kubevirt => github.com/ravidbro/cluster-api-provider-kubevirt v0.0.0-20200802110445-67a0d2db8825
