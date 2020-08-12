@@ -21,7 +21,7 @@ import (
 func pointerIgnitionConfig(installConfig *types.InstallConfig, rootCA []byte, role string) *igntypes.Config {
 	var ignitionHost string
 	// Default platform independent ignitionHost
-	ignitionHost = fmt.Sprintf("api-int.%s:22623", installConfig.ClusterDomain())
+	ignitionHost = fmt.Sprintf("api-int.%s:2222", installConfig.ClusterDomain())
 	// Update ignitionHost as necessary for platform
 	switch installConfig.Platform.Name() {
 	case baremetaltypes.Name:
