@@ -32,8 +32,8 @@ func (k *kubeconfig) generate(
 			{
 				Name: cluster,
 				Cluster: clientcmd.Cluster{
-					Server:                   apiURL,
-					CertificateAuthorityData: ca.Cert(),
+					Server:                apiURL,
+					InsecureSkipTLSVerify: true,
 				},
 			},
 		},
