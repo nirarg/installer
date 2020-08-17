@@ -8,6 +8,7 @@ import (
 	"github.com/openshift/installer/pkg/types/azure"
 	"github.com/openshift/installer/pkg/types/baremetal"
 	"github.com/openshift/installer/pkg/types/gcp"
+	"github.com/openshift/installer/pkg/types/kubevirt"
 	"github.com/openshift/installer/pkg/types/libvirt"
 	"github.com/openshift/installer/pkg/types/none"
 	"github.com/openshift/installer/pkg/types/openstack"
@@ -31,6 +32,7 @@ var (
 		aws.Name,
 		azure.Name,
 		gcp.Name,
+		kubevirt.Name,
 		openstack.Name,
 		ovirt.Name,
 		vsphere.Name,
@@ -183,6 +185,10 @@ type Platform struct {
 	// Ovirt is the configuration used when installing on oVirt.
 	// +optional
 	Ovirt *ovirt.Platform `json:"ovirt,omitempty"`
+
+	// Kubevirt is the configuration used when installing on kubevirt.
+	// +optional
+	Kubevirt *kubevirt.Platform `json:"kubevirt,omitempty"`
 }
 
 // Name returns a string representation of the platform (e.g. "aws" if
@@ -210,6 +216,8 @@ func (p *Platform) Name() string {
 		return vsphere.Name
 	case p.Ovirt != nil:
 		return ovirt.Name
+	case p.Kubevirt != nil:
+		return kubevirt.Name
 	default:
 		return ""
 	}
