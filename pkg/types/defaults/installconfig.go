@@ -16,11 +16,13 @@ import (
 )
 
 var (
-	defaultMachineCIDR    = ipnet.MustParseCIDR("10.0.0.0/16")
-	defaultServiceNetwork = ipnet.MustParseCIDR("172.30.0.0/16")
-	defaultClusterNetwork = ipnet.MustParseCIDR("10.128.0.0/14")
-	defaultHostPrefix     = 23
-	defaultNetworkType    = "OpenShiftSDN"
+	defaultMachineCIDR            = ipnet.MustParseCIDR("10.0.0.0/16")
+	defaultServiceNetwork         = ipnet.MustParseCIDR("172.30.0.0/16")
+	defaultClusterNetwork         = ipnet.MustParseCIDR("10.128.0.0/14")
+	DefaultHostPrefix             = 23
+	defaultNetworkType            = "OpenShiftSDN"
+	KubevirtDefaultServiceNetwork = ipnet.MustParseCIDR("172.31.0.0/16")
+	KubevirtDefaultClusterNetwork = ipnet.MustParseCIDR("10.192.0.0/14")
 )
 
 // SetInstallConfigDefaults sets the defaults for the install config.
@@ -48,7 +50,7 @@ func SetInstallConfigDefaults(c *types.InstallConfig) {
 		c.Networking.ClusterNetwork = []types.ClusterNetworkEntry{
 			{
 				CIDR:       *defaultClusterNetwork,
-				HostPrefix: int32(defaultHostPrefix),
+				HostPrefix: int32(DefaultHostPrefix),
 			},
 		}
 	}

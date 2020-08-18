@@ -31,7 +31,7 @@ func defaultInstallConfig() *types.InstallConfig {
 			ClusterNetwork: []types.ClusterNetworkEntry{
 				{
 					CIDR:       *defaultClusterNetwork,
-					HostPrefix: int32(defaultHostPrefix),
+					HostPrefix: int32(DefaultHostPrefix),
 				},
 			},
 		},

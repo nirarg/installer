@@ -17,6 +17,7 @@ import (
 	icopenstack "github.com/openshift/installer/pkg/asset/installconfig/openstack"
 	icovirt "github.com/openshift/installer/pkg/asset/installconfig/ovirt"
 	icvsphere "github.com/openshift/installer/pkg/asset/installconfig/vsphere"
+	"github.com/openshift/installer/pkg/ipnet"
 	"github.com/openshift/installer/pkg/types"
 	"github.com/openshift/installer/pkg/types/conversion"
 	"github.com/openshift/installer/pkg/types/defaults"
@@ -139,6 +140,16 @@ func (a *InstallConfig) finish(filename string) error {
 	}
 	if a.Config.Azure != nil {
 		a.Azure = icazure.NewMetadata(a.Config.Azure.CloudName)
+	}
+	if a.Config.Kubevirt != nil {
+		// Change the networks specific for kubevirt platform
+		a.Config.Networking.ServiceNetwork = []ipnet.IPNet{*defaults.KubevirtDefaultServiceNetwork}
+		a.Config.Networking.ClusterNetwork = []types.ClusterNetworkEntry{
+			{
+				CIDR:       *defaults.KubevirtDefaultClusterNetwork,
+				HostPrefix: int32(defaults.DefaultHostPrefix),
+			},
+		}
 	}
 	if err := validation.ValidateInstallConfig(a.Config).ToAggregate(); err != nil {
 		if filename == "" {
