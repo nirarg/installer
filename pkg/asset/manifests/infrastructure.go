@@ -1,6 +1,7 @@
 package manifests
 
 import (
+	"fmt"
 	"path/filepath"
 	"sort"
 
@@ -16,6 +17,7 @@ import (
 	"github.com/openshift/installer/pkg/types/azure"
 	"github.com/openshift/installer/pkg/types/baremetal"
 	"github.com/openshift/installer/pkg/types/gcp"
+	"github.com/openshift/installer/pkg/types/kubevirt"
 	"github.com/openshift/installer/pkg/types/libvirt"
 	"github.com/openshift/installer/pkg/types/none"
 	"github.com/openshift/installer/pkg/types/openstack"
@@ -160,6 +162,14 @@ func (i *Infrastructure) Generate(dependencies asset.Parents) error {
 			APIServerInternalIP: installConfig.Config.Ovirt.APIVIP,
 			IngressIP:           installConfig.Config.Ovirt.IngressVIP,
 		}
+	case kubevirt.Name:
+		config.Spec.PlatformSpec.Type = configv1.KubevirtPlatformType
+		config.Status.APIServerURL = fmt.Sprintf("https://api-%s.%s:6443", clusterID.InfraID, installConfig.Config.Kubevirt.InfraClusterIngressDomain)
+		// TODO <nargaman>
+		// config.Status.PlatformStatus.Kubevirt = &configv1.KubevirtPlatformStatus{
+		// 	APIServerInternalIP: installConfig.Config.Kubevirt.APIVIP,
+		// 	IngressIP:           installConfig.Config.Kubevirt.IngressVIP,
+		// }
 	default:
 		config.Spec.PlatformSpec.Type = configv1.NonePlatformType
 	}

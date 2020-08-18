@@ -14,6 +14,7 @@ import (
 	"github.com/openshift/installer/pkg/asset"
 	"github.com/openshift/installer/pkg/asset/installconfig"
 	"github.com/openshift/installer/pkg/types"
+	"github.com/openshift/installer/pkg/types/kubevirt"
 )
 
 var (
@@ -38,6 +39,7 @@ func (*Ingress) Name() string {
 func (*Ingress) Dependencies() []asset.Asset {
 	return []asset.Asset{
 		&installconfig.InstallConfig{},
+		&installconfig.ClusterID{},
 	}
 }
 
@@ -50,11 +52,12 @@ func (*Ingress) Dependencies() []asset.Asset {
 // to use the internal publishing strategy.
 func (ing *Ingress) Generate(dependencies asset.Parents) error {
 	installConfig := &installconfig.InstallConfig{}
-	dependencies.Get(installConfig)
+	clusterID := &installconfig.ClusterID{}
+	dependencies.Get(installConfig, clusterID)
 
 	ing.FileList = []*asset.File{}
 
-	clusterConfig, err := ing.generateClusterConfig(installConfig.Config)
+	clusterConfig, err := ing.generateClusterConfig(installConfig.Config, clusterID.InfraID)
 	if err != nil {
 		return errors.Wrap(err, "failed to create cluster config")
 	}
@@ -77,7 +80,7 @@ func (ing *Ingress) Generate(dependencies asset.Parents) error {
 	return nil
 }
 
-func (ing *Ingress) generateClusterConfig(config *types.InstallConfig) ([]byte, error) {
+func (ing *Ingress) generateClusterConfig(config *types.InstallConfig, clusterID string) ([]byte, error) {
 	obj := &configv1.Ingress{
 		TypeMeta: metav1.TypeMeta{
 			APIVersion: configv1.GroupVersion.String(),
@@ -90,6 +93,13 @@ func (ing *Ingress) generateClusterConfig(config *types.InstallConfig) ([]byte, 
 		Spec: configv1.IngressSpec{
 			Domain: fmt.Sprintf("apps.%s", config.ClusterDomain()),
 		},
+	}
+	switch config.Platform.Name() {
+	case kubevirt.Name:
+		underkubeIngressDomain := config.Platform.Kubevirt.InfraClusterIngressDomain
+		obj.Spec.Domain = fmt.Sprintf("apps-%s.%s", clusterID, underkubeIngressDomain)
+	default:
+		// Do nothing
 	}
 	return yaml.Marshal(obj)
 }
