@@ -45,6 +45,7 @@ func TestInstallConfigGenerate_FillsInDefaults(t *testing.T) {
 		Platform: types.Platform{None: &none.Platform{}},
 	}
 	installConfig := &InstallConfig{}
+	networking := &networking{}
 	parents := asset.Parents{}
 	parents.Add(
 		sshPublicKey,
@@ -52,6 +53,7 @@ func TestInstallConfigGenerate_FillsInDefaults(t *testing.T) {
 		clusterName,
 		pullSecret,
 		platform,
+		networking,
 	)
 	if err := installConfig.Generate(parents); err != nil {
 		t.Errorf("unexpected error generating install config: %v", err)
