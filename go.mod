@@ -26,19 +26,22 @@ require (
 	github.com/ghodss/yaml v1.0.1-0.20190212211648-25d852aebe32
 	github.com/go-playground/validator/v10 v10.2.0
 	github.com/golang/mock v1.4.3
-	github.com/golang/protobuf v1.4.1
+	github.com/golang/protobuf v1.4.2
 	github.com/google/martian v2.1.1-0.20190517191504-25dcb96d9e51+incompatible // indirect
 	github.com/google/uuid v1.1.1
 	github.com/gophercloud/gophercloud v0.12.0
 	github.com/gophercloud/utils v0.0.0-20200508015959-b0167b94122c
 	github.com/h2non/filetype v1.0.12
 	github.com/hashicorp/go-azure-helpers v0.10.0
-	github.com/hashicorp/go-plugin v1.2.2
+	github.com/hashicorp/go-plugin v1.3.0
 	github.com/hashicorp/logutils v1.0.0
 	github.com/hashicorp/terraform v0.12.21
-	github.com/hashicorp/terraform-plugin-sdk v1.14.0
+	github.com/hashicorp/terraform-plugin-sdk v1.15.0
+	github.com/hashicorp/terraform-provider-kubernetes v1.13.2
+	github.com/hashicorp/terraform-provider-kubernetes-alpha v0.2.1
 	github.com/hashicorp/vault v1.3.0 // indirect
 	github.com/hinshun/vt10x v0.0.0-20180809195222-d55458df857c // indirect
+	github.com/k8snetworkplumbingwg/network-attachment-definition-client v0.0.0-20191119172530-79f836b90111
 	github.com/keybase/go-crypto v0.0.0-20190828182435-a05457805304 // indirect
 	github.com/libvirt/libvirt-go v5.10.0+incompatible
 	github.com/libvirt/libvirt-go-xml v5.10.0+incompatible // indirect
@@ -53,6 +56,7 @@ require (
 	github.com/openshift/cloud-credential-operator v0.0.0-20200316201045-d10080b52c9e
 	github.com/openshift/cluster-api v0.0.0-20191129101638-b09907ac6668
 	github.com/openshift/cluster-api-provider-gcp v0.0.1-0.20200120152131-1b09fd9e7156
+	github.com/openshift/cluster-api-provider-kubevirt v0.0.0-20201005071206-fe82f25a4e7c
 	github.com/openshift/cluster-api-provider-libvirt v0.2.1-0.20191219173431-2336783d4603
 	github.com/openshift/cluster-api-provider-ovirt v0.1.1-0.20200504092944-27473ea1ae43
 	github.com/openshift/library-go v0.0.0-20200324092245-db2a8546af81
@@ -62,7 +66,6 @@ require (
 	github.com/ovirt/terraform-provider-ovirt v0.4.3-0.20200914080915-c4444fb5c201
 	github.com/packer-community/winrmcp v0.0.0-20180921211025-c76d91c1e7db // indirect
 	github.com/pborman/uuid v1.2.0
-	github.com/pierrec/lz4 v2.3.0+incompatible // indirect
 	github.com/pkg/errors v0.9.1
 	github.com/pkg/sftp v1.10.1
 	github.com/prometheus/client_golang v1.5.1
@@ -73,6 +76,7 @@ require (
 	github.com/spf13/cobra v0.0.6
 	github.com/stoewer/go-strcase v1.1.0 // indirect
 	github.com/stretchr/testify v1.5.1
+	github.com/terraform-provider-openstack/terraform-provider-openstack v1.32.0
 	github.com/terraform-providers/terraform-provider-aws v0.0.0
 	github.com/terraform-providers/terraform-provider-azurerm v0.0.0
 	github.com/terraform-providers/terraform-provider-google v1.20.1-0.20200623174414-27107f2ee160
@@ -85,23 +89,24 @@ require (
 	github.com/vincent-petithory/dataurl v0.0.0-20191104211930-d1553a71de50
 	github.com/vmware/govmomi v0.22.2
 	github.com/xlab/treeprint v0.0.0-20181112141820-a009c3971eca // indirect
-	golang.org/x/crypto v0.0.0-20200429183012-4b2356b1ed79
+	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
 	golang.org/x/lint v0.0.0-20200302205851-738671d3881b
 	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
-	golang.org/x/sys v0.0.0-20200509044756-6aff5f38e54f
-	golang.org/x/text v0.3.3 // indirect
+	golang.org/x/sys v0.0.0-20200915084602-288bc346aa39
 	google.golang.org/api v0.25.0
-	google.golang.org/genproto v0.0.0-20200507105951-43844f6eee31
+	google.golang.org/genproto v0.0.0-20200915202801-9f80d0600517
 	google.golang.org/grpc v1.29.1
 	gopkg.in/AlecAivazis/survey.v1 v1.8.9-0.20200217094205-6773bdf39b7f
 	gopkg.in/ini.v1 v1.51.0
-	gopkg.in/yaml.v2 v2.2.8
-	k8s.io/api v0.18.3
+	gopkg.in/yaml.v2 v2.3.0
+	k8s.io/api v0.19.0
 	k8s.io/apiextensions-apiserver v0.18.2
-	k8s.io/apimachinery v0.18.3
+	k8s.io/apimachinery v0.19.0
 	k8s.io/client-go v12.0.0+incompatible
 	k8s.io/klog v1.0.0
 	k8s.io/utils v0.0.0-20200327001022-6496210b90e8
+	kubevirt.io/client-go v0.29.0
+	kubevirt.io/containerized-data-importer v1.10.9
 	sigs.k8s.io/cluster-api-provider-aws v0.0.0
 	sigs.k8s.io/cluster-api-provider-azure v0.0.0
 	sigs.k8s.io/cluster-api-provider-openstack v0.0.0
@@ -113,41 +118,45 @@ replace (
 	github.com/Azure/go-autorest/autorest => github.com/tombuildsstuff/go-autorest/autorest v0.10.1-0.20200416184303-d4e299a3c04a
 	github.com/Azure/go-autorest/autorest/azure/auth => github.com/tombuildsstuff/go-autorest/autorest/azure/auth v0.4.3-0.20200416184303-d4e299a3c04a
 	github.com/go-log/log => github.com/go-log/log v0.1.1-0.20181211034820-a514cf01a3eb // Pinned by MCO
-	github.com/hashicorp/terraform => github.com/openshift/terraform v0.12.20-openshift-4 // Pin to fork with deduplicated rpc types v0.12.20-openshift-4
-	github.com/hashicorp/terraform-plugin-sdk => github.com/openshift/hashicorp-terraform-plugin-sdk v1.14.0-openshift // Pin to fork with public rpc types
+	github.com/hashicorp/terraform => github.com/nirarg/terraform v0.12.21-0.20201008165933-e7186b2753e8 // Pin to fork with deduplicated rpc types v0.12.20-openshift-4
+	github.com/hashicorp/terraform-plugin-sdk => github.com/nirarg/hashicorp-terraform-plugin-sdk v1.6.1-0.20201005215248-4d457557bf2c // Pin to fork with public rpc types
 	github.com/metal3-io/baremetal-operator => github.com/openshift/baremetal-operator v0.0.0-20200715132148-0f91f62a41fe // Use OpenShift fork
 	github.com/metal3-io/cluster-api-provider-baremetal => github.com/openshift/cluster-api-provider-baremetal v0.0.0-20190821174549-a2a477909c1d // Pin OpenShift fork
-	github.com/openshift/api => github.com/openshift/api v0.0.0-20200601094953-95abe2d2f422 // Pin API
-	github.com/openshift/client-go => github.com/openshift/client-go v0.0.0-20200116152001-92a2713fa240 // Pin client-go
+	github.com/openshift/api => github.com/openshift/api v0.0.0-20201005153912-821561a7f2a2 // Pin API
+	github.com/openshift/client-go => github.com/openshift/client-go v0.0.0-20200827190008-3062137373b5 // Pin client-go
 	github.com/openshift/machine-config-operator => github.com/openshift/machine-config-operator v0.0.1-0.20200721120235-b3b074ee9156 // Pin MCO so it doesn't get downgraded
 	github.com/terraform-providers/terraform-provider-aws => github.com/openshift/terraform-provider-aws v1.60.1-0.20200630224953-76d1fb4e5699 // Pin to openshift fork with tag v2.67.0-openshift
 	github.com/terraform-providers/terraform-provider-azurerm => github.com/openshift/terraform-provider-azurerm v1.40.1-0.20200707062554-97ea089cc12a // release-2.17.0 branch
 	github.com/terraform-providers/terraform-provider-ignition/v2 => github.com/community-terraform-providers/terraform-provider-ignition/v2 v2.1.0
 	github.com/terraform-providers/terraform-provider-vsphere => github.com/openshift/terraform-provider-vsphere v1.18.1-openshift-2
 	github.com/vmware/govmomi => github.com/vmware/govmomi v0.22.2-0.20200420222347-5fceac570f29
-	k8s.io/api => k8s.io/api v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/apiextensions-apiserver => k8s.io/apiextensions-apiserver v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/apimachinery => k8s.io/apimachinery v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/apiserver => k8s.io/apiserver v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/cli-runtime => k8s.io/cli-runtime v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/client-go => k8s.io/client-go v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/cloud-provider => k8s.io/cloud-provider v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/cluster-bootstrap => k8s.io/cluster-bootstrap v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/code-generator => k8s.io/code-generator v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/component-base => k8s.io/component-base v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/cri-api => k8s.io/cri-api v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/csi-translation-lib => k8s.io/csi-translation-lib v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/kube-aggregator => k8s.io/kube-aggregator v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/kube-controller-manager => k8s.io/kube-controller-manager v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/kube-proxy => k8s.io/kube-proxy v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/kube-scheduler => k8s.io/kube-scheduler v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/kubectl => k8s.io/kubectl v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/kubelet => k8s.io/kubelet v0.17.1 // Replaced by MCO/CRI-O
+	k8s.io/api => k8s.io/api v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/apiextensions-apiserver => k8s.io/apiextensions-apiserver v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/apimachinery => k8s.io/apimachinery v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/apiserver => k8s.io/apiserver v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/cli-runtime => k8s.io/cli-runtime v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/client-go => k8s.io/client-go v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/cloud-provider => k8s.io/cloud-provider v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/cluster-bootstrap => k8s.io/cluster-bootstrap v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/code-generator => k8s.io/code-generator v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/component-base => k8s.io/component-base v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/cri-api => k8s.io/cri-api v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/csi-translation-lib => k8s.io/csi-translation-lib v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/kube-aggregator => k8s.io/kube-aggregator v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/kube-controller-manager => k8s.io/kube-controller-manager v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/kube-proxy => k8s.io/kube-proxy v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/kube-scheduler => k8s.io/kube-scheduler v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/kubectl => k8s.io/kubectl v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/kubelet => k8s.io/kubelet v0.18.0 // Replaced by MCO/CRI-O
 	k8s.io/kubernetes => k8s.io/kubernetes v1.17.1 // Replaced by MCO/CRI-O
-	k8s.io/legacy-cloud-providers => k8s.io/legacy-cloud-providers v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/metrics => k8s.io/metrics v0.17.1 // Replaced by MCO/CRI-O
-	k8s.io/sample-apiserver => k8s.io/sample-apiserver v0.17.1 // Replaced by MCO/CRI-O
+	k8s.io/legacy-cloud-providers => k8s.io/legacy-cloud-providers v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/metrics => k8s.io/metrics v0.18.0 // Replaced by MCO/CRI-O
+	k8s.io/sample-apiserver => k8s.io/sample-apiserver v0.18.0 // Replaced by MCO/CRI-O
 	sigs.k8s.io/cluster-api-provider-aws => github.com/openshift/cluster-api-provider-aws v0.2.1-0.20200506073438-9d49428ff837 // Pin OpenShift fork
 	sigs.k8s.io/cluster-api-provider-azure => github.com/openshift/cluster-api-provider-azure v0.1.0-alpha.3.0.20200120114645-8a9592f1f87b // Pin OpenShift fork
 	sigs.k8s.io/cluster-api-provider-openstack => github.com/openshift/cluster-api-provider-openstack v0.0.0-20200526112135-319a35b2e38e // Pin OpenShift fork
 )
+
+replace github.com/hashicorp/terraform-provider-kubernetes => github.com/nirarg/terraform-provider-kubernetes v1.13.3-0.20200921093655-6c3184bcdc30
+
+replace github.com/hashicorp/terraform-provider-kubernetes-alpha => github.com/nirarg/terraform-provider-kubernetes-alpha v0.0.0-20200921035413-afbe17f6f970

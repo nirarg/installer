@@ -3,7 +3,6 @@ package terraform
 import (
 	"fmt"
 	"log"
-	"strings"
 
 	"github.com/hashicorp/go-multierror"
 	"github.com/hashicorp/hcl/v2"
@@ -13,7 +12,6 @@ import (
 	"github.com/hashicorp/terraform/addrs"
 	"github.com/hashicorp/terraform/configs"
 	"github.com/hashicorp/terraform/plans"
-	"github.com/hashicorp/terraform/plans/objchange"
 	"github.com/hashicorp/terraform/providers"
 	"github.com/hashicorp/terraform/provisioners"
 	"github.com/hashicorp/terraform/states"
@@ -178,52 +176,6 @@ func (n *EvalApply) Eval(ctx EvalContext) (interface{}, error) {
 		// bug, we accept this because storing a result here is always a
 		// best-effort sort of thing.
 		newVal = cty.UnknownAsNull(newVal)
-	}
-
-	if change.Action != plans.Delete && !diags.HasErrors() {
-		// Only values that were marked as unknown in the planned value are allowed
-		// to change during the apply operation. (We do this after the unknown-ness
-		// check above so that we also catch anything that became unknown after
-		// being known during plan.)
-		//
-		// If we are returning other errors anyway then we'll give this
-		// a pass since the other errors are usually the explanation for
-		// this one and so it's more helpful to let the user focus on the
-		// root cause rather than distract with this extra problem.
-		if errs := objchange.AssertObjectCompatible(schema, change.After, newVal); len(errs) > 0 {
-			if resp.LegacyTypeSystem {
-				// The shimming of the old type system in the legacy SDK is not precise
-				// enough to pass this consistency check, so we'll give it a pass here,
-				// but we will generate a warning about it so that we are more likely
-				// to notice in the logs if an inconsistency beyond the type system
-				// leads to a downstream provider failure.
-				var buf strings.Builder
-				fmt.Fprintf(&buf, "[WARN] Provider %q produced an unexpected new value for %s, but we are tolerating it because it is using the legacy plugin SDK.\n    The following problems may be the cause of any confusing errors from downstream operations:", n.ProviderAddr.ProviderConfig.Type, absAddr)
-				for _, err := range errs {
-					fmt.Fprintf(&buf, "\n      - %s", tfdiags.FormatError(err))
-				}
-				log.Print(buf.String())
-
-				// The sort of inconsistency we won't catch here is if a known value
-				// in the plan is changed during apply. That can cause downstream
-				// problems because a dependent resource would make its own plan based
-				// on the planned value, and thus get a different result during the
-				// apply phase. This will usually lead to a "Provider produced invalid plan"
-				// error that incorrectly blames the downstream resource for the change.
-
-			} else {
-				for _, err := range errs {
-					diags = diags.Append(tfdiags.Sourceless(
-						tfdiags.Error,
-						"Provider produced inconsistent result after apply",
-						fmt.Sprintf(
-							"When applying changes to %s, provider %q produced an unexpected new value for %s.\n\nThis is a bug in the provider, which should be reported in the provider's own issue tracker.",
-							absAddr, n.ProviderAddr.ProviderConfig.Type, tfdiags.FormatError(err),
-						),
-					))
-				}
-			}
-		}
 	}
 
 	// If a provider returns a null or non-null object at the wrong time then
