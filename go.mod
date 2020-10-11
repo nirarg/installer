@@ -29,7 +29,7 @@ require (
 	github.com/golang/protobuf v1.4.2
 	github.com/google/martian v2.1.1-0.20190517191504-25dcb96d9e51+incompatible // indirect
 	github.com/google/uuid v1.1.1
-	github.com/gophercloud/gophercloud v0.12.0
+	github.com/gophercloud/gophercloud v0.12.1-0.20200821143728-362eb785d617
 	github.com/gophercloud/utils v0.0.0-20200508015959-b0167b94122c
 	github.com/h2non/filetype v1.0.12
 	github.com/hashicorp/go-azure-helpers v0.10.0
@@ -76,8 +76,7 @@ require (
 	github.com/spf13/cobra v0.0.6
 	github.com/stoewer/go-strcase v1.1.0 // indirect
 	github.com/stretchr/testify v1.5.1
-	github.com/terraform-provider-openstack/terraform-provider-openstack v1.32.0
-	github.com/terraform-providers/terraform-provider-aws v0.0.0
+	github.com/terraform-providers/terraform-provider-aws v1.60.1-0.20191010190908-1261a98537f2
 	github.com/terraform-providers/terraform-provider-azurerm v0.0.0
 	github.com/terraform-providers/terraform-provider-google v1.20.1-0.20200623174414-27107f2ee160
 	github.com/terraform-providers/terraform-provider-ignition/v2 v2.1.0

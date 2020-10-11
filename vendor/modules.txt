@@ -544,7 +544,7 @@ github.com/googleapis/gax-go/v2
 github.com/googleapis/gnostic/OpenAPIv2
 github.com/googleapis/gnostic/compiler
 github.com/googleapis/gnostic/extensions
-# github.com/gophercloud/gophercloud v0.12.0
+# github.com/gophercloud/gophercloud v0.12.1-0.20200821143728-362eb785d617
 ## explicit
 github.com/gophercloud/gophercloud
 github.com/gophercloud/gophercloud/internal
@@ -1188,10 +1188,7 @@ github.com/stoewer/go-strcase
 # github.com/stretchr/testify v1.5.1
 ## explicit
 github.com/stretchr/testify/assert
-# github.com/terraform-providers/terraform-provider-aws v0.0.0 => github.com/openshift/terraform-provider-aws v1.60.1-0.20200630224953-76d1fb4e5699
-# github.com/terraform-provider-openstack/terraform-provider-openstack v1.32.0
-## explicit
-github.com/terraform-provider-openstack/terraform-provider-openstack/openstack
+# github.com/terraform-providers/terraform-provider-aws v1.60.1-0.20191010190908-1261a98537f2 => github.com/openshift/terraform-provider-aws v1.60.1-0.20200630224953-76d1fb4e5699
 ## explicit
 github.com/terraform-providers/terraform-provider-aws/aws
 github.com/terraform-providers/terraform-provider-aws/aws/internal/flatmap
@@ -1913,7 +1910,7 @@ gopkg.in/inf.v0
 # gopkg.in/ini.v1 v1.51.0
 ## explicit
 gopkg.in/ini.v1
-# gopkg.in/yaml.v2 v2.2.8
+# gopkg.in/yaml.v2 v2.3.0
 ## explicit
 gopkg.in/yaml.v2
 # gopkg.in/yaml.v3 v3.0.0-20191010095647-fc94e3f71652
