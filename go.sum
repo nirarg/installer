@@ -1465,8 +1465,8 @@ github.com/neelance/astrewrite v0.0.0-20160511093645-99348263ae86/go.mod h1:kHJE
 github.com/neelance/sourcemap v0.0.0-20151028013722-8c68805598ab/go.mod h1:Qr6/a/Q4r9LP1IltGz7tA7iOK1WonHEYhu1HRBA7ZiM=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e h1:fD57ERR4JtEqsWbfPhv4DMiApHyliiK5xCTNVSPiaAs=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
-github.com/nirarg/terraform-provider-kubevirt v0.0.0-20201019121237-c7af21eea0d5 h1:ryzxXKL3Dy/JOt3ln4r7npcuSXnGasgInJGDASdYfpg=
-github.com/nirarg/terraform-provider-kubevirt v0.0.0-20201019121237-c7af21eea0d5/go.mod h1:HrB2gLRoeQGVGDxCcpJwsQ+LXIjnVJFaZKovKsj2xuE=
+github.com/nirarg/terraform-provider-kubevirt v0.0.0-20201021155128-1c2b8ec764f0 h1:3dZ9OC7aPDHj8atONemdL5MlL9B9oqnj0YlJU7B3qKs=
+github.com/nirarg/terraform-provider-kubevirt v0.0.0-20201021155128-1c2b8ec764f0/go.mod h1:HrB2gLRoeQGVGDxCcpJwsQ+LXIjnVJFaZKovKsj2xuE=
 github.com/nishanths/exhaustive v0.0.0-20200811152831-6cf413ae40e0/go.mod h1:wBEpHwM2OdmeNpdCvRPUlkEbBuaFmcK4Wv8Q7FuGW3c=
 github.com/nu7hatch/gouuid v0.0.0-20131221200532-179d4d0c4d8d h1:VhgPp6v9qf9Agr/56bj7Y/xa04UccTW04VP0Qed4vnQ=
 github.com/nu7hatch/gouuid v0.0.0-20131221200532-179d4d0c4d8d/go.mod h1:YUTz3bUH2ZwIWBy3CJBeOBEugqcmXREj14T+iG/4k4U=

@@ -144,5 +144,5 @@ replace (
 	// Pin kubernetes hash
 	github.com/hashicorp/terraform-provider-kubernetes => github.com/hashicorp/terraform-provider-kubernetes v1.13.3-0.20201012211451-c24349628446
 	// Change kubevirt/terraform-provider-kubevirt to nirarg fork
-	github.com/kubevirt/terraform-provider-kubevirt => github.com/nirarg/terraform-provider-kubevirt v0.0.0-20201019121237-c7af21eea0d5
+	github.com/kubevirt/terraform-provider-kubevirt => github.com/nirarg/terraform-provider-kubevirt v0.0.0-20201021155128-1c2b8ec764f0
 )
