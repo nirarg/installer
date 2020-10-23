@@ -1,3 +1,25 @@
+data "ignition_file" "hostname" {
+  mode  = "420"
+  path  = "/etc/hostname"
+
+  content {
+    content = <<EOF
+${var.cluster_id}-bootstrap
+EOF
+  }
+}
+
+data "ignition_config" "bootstrap_ignition_config" {
+
+  merge {
+    source = "data:text/plain;charset=utf-8;base64,${base64encode(var.ignition_data)}"
+  }
+
+  files = [
+    element(data.ignition_file.hostname.*.rendered, 0)
+  ]
+}
+
 resource "kubernetes_secret" "bootstrap_ignition" {
   metadata {
     name      = "${var.cluster_id}-bootstrap-ignition"
@@ -5,7 +27,10 @@ resource "kubernetes_secret" "bootstrap_ignition" {
     labels    = var.labels
   }
   data = {
-    "userdata" = var.ignition_data
+    "userdata" = element(
+      data.ignition_config.bootstrap_ignition_config.*.rendered,
+      0,
+    )
   }
 }
 

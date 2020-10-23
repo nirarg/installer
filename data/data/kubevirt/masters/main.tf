@@ -1,3 +1,27 @@
+data "ignition_file" "hostname" {
+  count = var.master_count
+  mode  = "420"
+  path  = "/etc/hostname"
+
+  content {
+    content = <<EOF
+${var.cluster_id}-master-${count.index}
+EOF
+  }
+}
+
+data "ignition_config" "master_ignition_config" {
+  count = var.master_count
+
+  merge {
+    source = "data:text/plain;charset=utf-8;base64,${base64encode(var.ignition_data)}"
+  }
+
+  files = [
+    element(data.ignition_file.hostname.*.rendered, count.index)
+  ]
+}
+
 resource "kubernetes_secret" "master_ignition" {
   count = var.master_count
 
@@ -7,7 +31,10 @@ resource "kubernetes_secret" "master_ignition" {
     labels    = var.labels
   }
   data = {
-    "userdata" = var.ignition_data
+    "userdata" = element(
+      data.ignition_config.master_ignition_config.*.rendered,
+      count.index,
+    )
   }
 }
 
