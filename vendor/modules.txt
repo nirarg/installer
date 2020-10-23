@@ -957,7 +957,7 @@ github.com/kr/fs
 github.com/kr/pretty
 # github.com/kr/text v0.2.0
 github.com/kr/text
-# github.com/kubevirt/terraform-provider-kubevirt v0.0.0-00010101000000-000000000000 => github.com/nirarg/terraform-provider-kubevirt v0.0.0-20201021155128-1c2b8ec764f0
+# github.com/kubevirt/terraform-provider-kubevirt v0.0.0-00010101000000-000000000000 => github.com/nirarg/terraform-provider-kubevirt v0.0.0-20201022163808-162e741630ed
 ## explicit
 github.com/kubevirt/terraform-provider-kubevirt/kubevirt
 github.com/kubevirt/terraform-provider-kubevirt/kubevirt/client
@@ -2257,4 +2257,4 @@ sigs.k8s.io/yaml
 # github.com/Azure/go-autorest/autorest/validation => github.com/Azure/go-autorest/autorest/validation v0.2.1-0.20191028180845-3492b2aff503
 # github.com/go-openapi/spec => github.com/go-openapi/spec v0.19.4
 # github.com/hashicorp/terraform-provider-kubernetes => github.com/hashicorp/terraform-provider-kubernetes v1.13.3-0.20201012211451-c24349628446
-# github.com/kubevirt/terraform-provider-kubevirt => github.com/nirarg/terraform-provider-kubevirt v0.0.0-20201021155128-1c2b8ec764f0
+# github.com/kubevirt/terraform-provider-kubevirt => github.com/nirarg/terraform-provider-kubevirt v0.0.0-20201022163808-162e741630ed
