@@ -28,8 +28,7 @@ module "masters" {
   network_name   = var.kubevirt_network_name
   pv_access_mode = var.kubevirt_pv_access_mode
   labels         = var.kubevirt_labels
-  image_url      = var.kubevirt_image_url
-  // pvc_name       = var.kubevirt_source_pvc_name
+  pvc_name       = module.datavolume.pvc_name
 }
 
 module "bootstrap" {
@@ -44,6 +43,5 @@ module "bootstrap" {
   network_name   = var.kubevirt_network_name
   pv_access_mode = var.kubevirt_pv_access_mode
   labels         = var.kubevirt_labels
-  image_url      = var.kubevirt_image_url
-  // pvc_name       = var.kubevirt_source_pvc_name
+  pvc_name       = module.datavolume.pvc_name
 }

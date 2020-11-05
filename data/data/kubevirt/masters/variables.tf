@@ -46,9 +46,9 @@ variable "pv_access_mode" {
   description = "The access mode which all the persistant volumes should be created with [ReadWriteOnce,ReadOnlyMany,ReadWriteMany]"
 }
 
-variable "image_url" {
+variable "pvc_name" {
   type        = string
-  description = "The source image URL to be used to create the source persistant data volume (all the VMs are cloned from)"
+  description = "The Persistant data volume which all the vms (workers/masters) should be cloned from"
 }
 
 variable "labels" {
@@ -62,8 +62,3 @@ EOF
 
   default = {}
 }
-
-// variable "pvc_name" {
-//   type        = string
-//   description = "The Persistant data volume which all the vms (workers/masters) should be cloned from"
-// }

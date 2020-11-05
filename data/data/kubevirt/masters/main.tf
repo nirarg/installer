@@ -61,8 +61,9 @@ resource "kubevirt_virtual_machine" "master_vm" {
       }
       spec {
         source {
-          http {
-            url = var.image_url
+          pvc {
+            name = var.pvc_name
+            namespace = var.namespace
           }
         }
         pvc {
